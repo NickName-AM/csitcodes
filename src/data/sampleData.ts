@@ -393,6 +393,713 @@ int main() {
     tags: ["sorting", "bubblesort", "function"],
     createdAt: "2025-09-15",
   },
+
+
+  // (GAP IN `id` FOR LATER ADDITION)
+  // SECOND SEMESTER 
+
+  {
+    id: "24",
+    title: "Constructor and Destructor",
+    description: "Show the usage of constructor and destructor in c++",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    // Constructor
+    MyClass() {
+        cout << "Constructor called: Object created." << endl;
+    }
+
+    // Destructor
+    ~MyClass() {
+        cout << "Destructor called: Object destroyed." << endl;
+    }
+
+    void display() {
+        cout << "Hello from MyClass!" << endl;
+    }
+};
+
+int main() {
+    cout << "Entering main function." << endl;
+
+    MyClass obj;  // Constructor will be called here
+    obj.display();
+
+    cout << "Exiting main function." << endl;
+
+    return 0;
+    // Destructor will be called here (when obj goes out of scope)
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["constructor", "destructor", "object"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "25",
+    title: "Operator Overloading",
+    description: "Overload `+` operator for a Complex Number Class",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    float real, imag;
+
+public:
+    Complex(float r = 0, float i = 0) : real(r), imag(i) {}
+
+    // Overload + operator
+    Complex operator+(const Complex& obj) {
+        return Complex(real + obj.real, imag + obj.imag);
+    }
+
+    // Display function
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(2.5, 3.5);
+    Complex c2(1.5, 4.5);
+
+    Complex c3 = c1 + c2;
+
+    cout << "Result: ";
+    c3.display();
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["operatoroverloading", "complexnumbers"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "26",
+    title: "Function Overloading",
+    description: "Calculate the area of different shapes using overloaded functions",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+// Area of circle
+float area(float radius) {
+    return 3.14f * radius * radius;
+}
+
+// Area of rectangle
+int area(int length, int width) {
+    return length * width;
+}
+
+int main() {
+    cout << "Area of circle (r = 5): " << area(5.0f) << endl;
+    cout << "Area of rectangle (l = 4, w = 6): " << area(4, 6) << endl;
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["functionoverloading", "areaofcircle", "areaofrectangle"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "27",
+    title: "Inline Function",
+    description: "Calculate the cube of a number using an inline function",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+inline int cube(int x) {
+    return x * x * x;
+}
+
+int main() {
+    cout << "Cube of 3: " << cube(3) << endl;
+    cout << "Cube of 5: " << cube(5) << endl;
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["inlinefunction", "cubeofnumber"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "28",
+    title: "Default arguments",
+    description: "Display employee details with default department",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+void showDetails(string name, string department = "General") {
+    cout << "Name: " << name << ", Department: " << department << endl;
+}
+
+int main() {
+    showDetails("Alice", "HR");
+    showDetails("Bob"); // Uses default argument
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["defaultarguments", "defaultparameters"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "29",
+    title: "Pass by Reference",
+    description: "Swap two numbers using pass by reference",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+    cout << "Before swap: x = " << x << ", y = " << y << endl;
+    swap(x, y);
+    cout << "After swap: x = " << x << ", y = " << y << endl;
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["passbyreference", "swapnumbers"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "30",
+    title: "Return by Reference",
+    description: "Return reference to array element and modify it",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+int& getElement(int arr[], int index) {
+    return arr[index]; // Returning by reference
+}
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    
+    cout << "Before: " << numbers[2] << endl;
+    getElement(numbers, 2) = 99; // Modify directly via reference
+    cout << "After: " << numbers[2] << endl;
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["returnbyreference", "arraysearch"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "31",
+    title: "Parameterized Constructor",
+    description: "Initialize object with user-defined values using a parameterized constructor",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+
+public:
+    // Parameterized constructor
+    Person(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Person p1("Alice", 30);
+    Person p2("Bob", 25);
+
+    p1.display();
+    p2.display();
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["parameterizedconstructor", "constructor"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "32",
+    title: "Copy Constructor",
+    description: "Create a copy of an object using a copy constructor",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    int pages;
+
+public:
+    // Parameterized constructor
+    Book(string t, int p) {
+        title = t;
+        pages = p;
+    }
+
+    // Copy constructor
+    Book(const Book &b) {
+        title = b.title;
+        pages = b.pages;
+    }
+
+    void display() {
+        cout << "Title: " << title << ", Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    Book b1("C++ Basics", 200);
+    Book b2 = b1;  // Copy constructor is called
+
+    b1.display();
+    b2.display();
+
+    return 0;
+}
+`,
+    subject: "oop",
+    semester: 2,
+    tags: ["copyconstructor", "constructor"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "33",
+    title: "Inheritance (with access specifiers)",
+    description: "Demonstrate public, protected, and private access through inheritance",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void sound() {
+        cout << "Animal makes sound" << endl;
+    }
+
+protected:
+    void breathe() {
+        cout << "Animal breathes" << endl;
+    }
+
+private:
+    void eat() {
+        cout << "Animal eats (private)" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void show() {
+        sound();    // public → accessible
+        breathe();  // protected → accessible in derived
+        // eat();   // private → not accessible
+    }
+};
+
+int main() {
+    Dog d;
+    d.show();
+    d.sound(); // Accessible
+    // d.breathe(); // Not accessible from outside
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["accessspecifiers", "inheritance"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "34",
+    title: "Aggregation",
+    description: "Use one class object inside another (has-a relationship)",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+// Class Address
+class Address {
+public:
+    string city;
+    string country;
+
+    Address(string c, string cn) {
+        city = c;
+        country = cn;
+    }
+
+    void display() {
+        cout << "City: " << city << ", Country: " << country << endl;
+    }
+};
+
+// Class Student (has-a Address)
+class Student {
+private:
+    string name;
+    Address addr; // Aggregation
+
+public:
+    Student(string n, Address a) : name(n), addr(a) {}
+
+    void show() {
+        cout << "Student Name: " << name << endl;
+        addr.display();
+    }
+};
+
+int main() {
+    Address a("Delhi", "India");
+    Student s("Raj", a);
+    s.show();
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["aggregation"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "35",
+    title: "Virtual Function",
+    description: "Demonstrate function overriding using virtual functions",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void show() {
+        cout << "Base class show()" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() override {
+        cout << "Derived class show()" << endl;
+    }
+};
+
+int main() {
+    Base* ptr;
+    Derived d;
+    ptr = &d;
+
+    ptr->show();  // Calls Derived class show() due to virtual function
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["virtualfunction"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "36",
+    title: "Late binding (Runtime polymorphism)",
+    description: "Illustrate late binding using a base class pointer and overridden function",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void speak() {
+        cout << "Animal speaks" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+    Animal* a;
+    Dog d;
+    a = &d;
+
+    a->speak();  // Late binding: Dog's speak() is called at runtime
+
+    return 0;
+}
+`,
+    subject: "oop",
+    semester: 2,
+    tags: ["latebinding", "runtimepolymorphism"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "37",
+    title: "Pure Virtual Function (Abstract Class)",
+    description: "Create an abstract class with a pure virtual function",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0;  // Pure virtual function
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+int main() {
+    // Shape s;  // Cannot instantiate abstract class
+    Circle c;
+    c.draw();   // Calls derived class implementation
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["purevirtualfunction", "abstractclass"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "38",
+    title: "Friend Function",
+    description: "Access private data using a friend function",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    int length;
+
+public:
+    Box(int l) : length(l) {}
+
+    friend void printLength(Box b);  // Friend function declaration
+};
+
+// Friend function definition
+void printLength(Box b) {
+    cout << "Length of box: " << b.length << endl;
+}
+
+int main() {
+    Box b(10);
+    printLength(b);  // Accesses private member
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["friendfunction"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "39",
+    title: "Static Function",
+    description: "Use a static member function to access static data",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+class Counter {
+private:
+    static int count;
+
+public:
+    Counter() {
+        count++;
+    }
+
+    static void showCount() {
+        cout << "Object count: " << count << endl;
+    }
+};
+
+// Definition of static member
+int Counter::count = 0;
+
+int main() {
+    Counter c1, c2, c3;
+    Counter::showCount();  // Access without object
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["staticfunction"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "40",
+    title: "Function Template",
+    description: "Create a generic function to find the maximum of two values",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+// Function template
+template <typename T>
+T getMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    cout << "Max of 10 and 20: " << getMax(10, 20) << endl;
+    cout << "Max of 3.5 and 2.1: " << getMax(3.5, 2.1) << endl;
+    cout << "Max of 'A' and 'Z': " << getMax('A', 'Z') << endl;
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["functiontemplate", "maximum"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "41",
+    title: "Class Template",
+    description: "Create a generic class to store and display two values of any type",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+// Class template
+template <class T>
+class Pair {
+private:
+    T a, b;
+
+public:
+    Pair(T x, T y) : a(x), b(y) {}
+
+    void display() {
+        cout << "Values: " << a << " and " << b << endl;
+    }
+};
+
+int main() {
+    Pair<int> intPair(10, 20);
+    Pair<string> stringPair("Hello", "World");
+
+    intPair.display();
+    stringPair.display();
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["classtemplate"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "42",
+    title: "Exception Handling",
+    description: "Handle divide-by-zero exception using try-catch block",
+    language: "cpp",
+    code: `#include <iostream>
+using namespace std;
+
+int divide(int a, int b) {
+    if (b == 0)
+        throw runtime_error("Division by zero not allowed");
+    return a / b;
+}
+
+int main() {
+    int x = 10, y = 0;
+
+    try {
+        int result = divide(x, y);
+        cout << "Result: " << result << endl;
+    } catch (const exception& e) {
+        cout << "Exception caught: " << e.what() << endl;
+    }
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["exceptionhandling", "divisionbyzero"],
+    createdAt: "2025-09-18",
+  },
+  {
+    id: "43",
+    title: "File Handling",
+    description: "Write to and read from a file using C++ file handling",
+    language: "cpp",
+    code: `#include <iostream>
+#include <fstream>  // Required for file handling
+using namespace std;
+
+int main() {
+    string filename = "data.txt";
+
+    // ----------- Writing to a file -----------
+    ofstream outFile(filename);  // Create and open a file for writing
+    if (!outFile) {
+        cerr << "Error creating file!" << endl;
+        return 1;
+    }
+
+    outFile << "Hello, File Handling in C++!\\n";
+    outFile << "This is a second line.\\n";
+    outFile.close();  // Close the file after writing
+    cout << "Data written to file successfully.\\n";
+
+    // ----------- Reading from a file -----------
+    ifstream inFile(filename);  // Open the file for reading
+    if (!inFile) {
+        cerr << "Error opening file for reading!" << endl;
+        return 1;
+    }
+
+    string line;
+    cout << "\\nContents of the file:\\n";
+    while (getline(inFile, line)) {
+        cout << line << endl;  // Read and print line by line
+    }
+    inFile.close();  // Close the file after reading
+
+    return 0;
+}`,
+    subject: "oop",
+    semester: 2,
+    tags: ["filehandling"],
+    createdAt: "2025-09-18",
+  },
 ];
 
 export const subjects: Subject[] = [
@@ -404,29 +1111,29 @@ export const subjects: Subject[] = [
     description: "Introduction to programming using C language",
     semester: 1,
   },
-  {
-    id: "s1-2",
-    name: "Mathematics I",
-    code: "MATH101",
-    description: "Calculus and linear algebra fundamentals",
-    semester: 1,
-  },
-  {
-    id: "s1-3",
-    name: "Digital Logic",
-    code: "CS102",
-    description: "Boolean algebra and digital circuits",
-    semester: 1,
-  },
+  // {
+  //   id: "s1-2",
+  //   name: "Mathematics I",
+  //   code: "MATH101",
+  //   description: "Calculus and linear algebra fundamentals",
+  //   semester: 1,
+  // },
+  // {
+  //   id: "s1-3",
+  //   name: "Digital Logic",
+  //   code: "CS102",
+  //   description: "Boolean algebra and digital circuits",
+  //   semester: 1,
+  // },
 
   // Semester 2
-  {
-    id: "s2-1",
-    name: "Data Structures",
-    code: "CS201",
-    description: "Arrays, linked lists, stacks, queues, trees",
-    semester: 2,
-  },
+  // {
+  //   id: "s2-1",
+  //   name: "Discrete Structure",
+  //   code: "CS201",
+  //   description: "Logic, proofs, sets, relations, functions, counting, and probability",
+  //   semester: 2,
+  // },
   {
     id: "s2-2",
     name: "Object Oriented Programming",
@@ -436,9 +1143,9 @@ export const subjects: Subject[] = [
   },
   {
     id: "s2-3",
-    name: "Computer Organization",
+    name: "Microprocessor",
     code: "CS203",
-    description: "CPU architecture and assembly language",
+    description: "Assembly language (8085 & 8086)",
     semester: 2,
   },
 
