@@ -180,6 +180,33 @@ const Index = () => {
               >
                 @NickName-AM
               </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() =>
+                  window.open("https://github.com/ursche/", "_blank")
+                }
+              >
+                @ursche
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() =>
+                  window.open("https://github.com/Mmanish747", "_blank")
+                }
+              >
+                @ManishK
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() =>
+                  window.open("https://github.com/Shujin001", "_blank")
+                }
+              >
+                @Shujin001
+              </Button>
               {/*<Button variant="ghost" size="sm">
                 <Globe className="mr-2 h-4 w-4" />
                 @

@@ -394,9 +394,8 @@ int main() {
     createdAt: "2025-09-15",
   },
 
-
   // (GAP IN `id` FOR LATER ADDITION)
-  // SECOND SEMESTER 
+  // SECOND SEMESTER
 
   {
     id: "24",
@@ -484,7 +483,8 @@ int main() {
   {
     id: "26",
     title: "Function Overloading",
-    description: "Calculate the area of different shapes using overloaded functions",
+    description:
+      "Calculate the area of different shapes using overloaded functions",
     language: "cpp",
     code: `#include <iostream>
 using namespace std;
@@ -593,7 +593,7 @@ int& getElement(int arr[], int index) {
 
 int main() {
     int numbers[5] = {1, 2, 3, 4, 5};
-    
+
     cout << "Before: " << numbers[2] << endl;
     getElement(numbers, 2) = 99; // Modify directly via reference
     cout << "After: " << numbers[2] << endl;
@@ -608,7 +608,8 @@ int main() {
   {
     id: "31",
     title: "Parameterized Constructor",
-    description: "Initialize object with user-defined values using a parameterized constructor",
+    description:
+      "Initialize object with user-defined values using a parameterized constructor",
     language: "cpp",
     code: `#include <iostream>
 using namespace std;
@@ -693,7 +694,8 @@ int main() {
   {
     id: "33",
     title: "Inheritance (with access specifiers)",
-    description: "Demonstrate public, protected, and private access through inheritance",
+    description:
+      "Demonstrate public, protected, and private access through inheritance",
     language: "cpp",
     code: `#include <iostream>
 using namespace std;
@@ -827,7 +829,8 @@ int main() {
   {
     id: "36",
     title: "Late binding (Runtime polymorphism)",
-    description: "Illustrate late binding using a base class pointer and overridden function",
+    description:
+      "Illustrate late binding using a base class pointer and overridden function",
     language: "cpp",
     code: `#include <iostream>
 using namespace std;
@@ -991,7 +994,8 @@ int main() {
   {
     id: "41",
     title: "Class Template",
-    description: "Create a generic class to store and display two values of any type",
+    description:
+      "Create a generic class to store and display two values of any type",
     language: "cpp",
     code: `#include <iostream>
 using namespace std;
@@ -1099,6 +1103,66 @@ int main() {
     semester: 2,
     tags: ["filehandling"],
     createdAt: "2025-09-18",
+  },
+  {
+    id: "44",
+    title: "Convert String to Upper Case (8086)",
+    description:
+      "Write an ALP to convert the string 'computer science' to upper case using 8086 microprocessor",
+    language: "asm",
+    code: "ORG 100H\nMOV SI, OFFSET STRING\nNEXT_CHAR:\nMOV AL, [SI]\nCMP AL, 'a'\nJB SKIP\nCMP AL, 'z'\nJA SKIP\nSUB AL, 20H\nMOV [SI], AL\nSKIP:\nINC SI\nCMP [SI], 0\nJNZ NEXT_CHAR\nINT 20H\nSTRING DB 'computer science',0",
+    subject: "microprocessor",
+    semester: 2,
+    tags: ["8086", "string", "uppercase", "assembly"],
+    createdAt: "2025-09-19",
+  },
+  {
+    id: "45",
+    title: "Factorial Calculation (8085)",
+    description:
+      "Write an Assembly program for calculating the factorial of a number using 8085 microprocessor",
+    language: "asm",
+    code: "ORG 2000H\nMVI B, 05H ; number to find factorial\nMVI C, 01H ; result = 1\nLOOP: MOV A, B\nCPI 01H\nJC END\nMOV A, C\nMUL B ; multiply C by B (pseudo instruction, replace with repeated addition if needed)\nMOV C, A\nDCR B\nJMP LOOP\nEND: STA 2050H ; store result\nHLT",
+    subject: "microprocessor",
+    semester: 2,
+    tags: ["8085", "factorial", "assembly", "loop"],
+    createdAt: "2025-09-19",
+  },
+  {
+    id: "46",
+    title: "Find Largest in Array (8085)",
+    description:
+      "An array containing 5 elements is stored from memory location 4000h; write an assembly language program for 8085 microprocessor to find largest element and store in memory location 4005h",
+    language: "asm",
+    code: "ORG 4000H\nLXI H, 4000H ; point to first element\nMOV A, M\nINX H\nMVI B, 04H ; counter for remaining 4 elements\nNEXT: MOV C, M\nCMP C\nJC SKIP\nMOV A, C\nSKIP: INX H\nDCR B\nJNZ NEXT\nSTA 4005H ; store largest\nHLT",
+    subject: "microprocessor",
+    semester: 2,
+    tags: ["8085", "array", "largest", "assembly"],
+    createdAt: "2025-09-19",
+  },
+  {
+    id: "47",
+    title: "Count Occurrences of 'o' in String (8086)",
+    description:
+      "Write an assembly language program for 8086 to count and display number of occurrences of letter 'o' in string 'Microprocessor organization'",
+    language: "asm",
+    code: "ORG 100H\nMOV SI, OFFSET STRING\nMOV CX, 0 ; counter\nNEXT_CHAR:\nMOV AL, [SI]\nCMP AL, 0\nJE END\nCMP AL, 'o'\nJNE SKIP\nINC CX\nSKIP:\nINC SI\nJMP NEXT_CHAR\nEND:\nMOV AX, CX ; store count in AX\nINT 20H\nSTRING DB 'Microprocessor organization',0",
+    subject: "microprocessor",
+    semester: 2,
+    tags: ["8086", "string", "count", "assembly"],
+    createdAt: "2025-09-19",
+  },
+  {
+    id: "48",
+    title: "Find Largest in Array (8085) Alternative",
+    description:
+      "Write an assembly language program to find the largest number of an array using 8085 microprocessor",
+    language: "asm",
+    code: "ORG 3000H\nLXI H, 3000H ; HL points to first element\nMOV A, M\nINX H\nMVI B, 04H ; number of remaining elements\nLOOP: MOV C, M\nCMP C\nJC SKIP\nMOV A, C\nSKIP: INX H\nDCR B\nJNZ LOOP\nSTA 3005H ; store largest element\nHLT",
+    subject: "microprocessor",
+    semester: 2,
+    tags: ["8085", "array", "largest", "assembly"],
+    createdAt: "2025-09-19",
   },
 ];
 
